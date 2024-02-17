@@ -1,0 +1,131 @@
+.profile-main-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .greenbox {
+    width: 100%;
+    height: 150px;
+    background-color: #00a264;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  .greenbox h1 {
+    color: #fff;
+  
+    font-family: Poppins;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+  .update-profile {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-left: 15%;
+  }
+  .circle1 {
+    position: absolute;
+    left: 550px;
+    transform: rotate(-90deg);
+  }
+  .circle2 {
+    position: absolute;
+    right: 200px;
+    bottom: 10px;
+  }
+  .circle3 {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    transform: rotate(-90deg);
+  }
+  .userprofile-card {
+    width: 420px;
+    height: 520px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    border: 1px solid #dddfe2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    position: relative;
+  }
+  .login_inputfield {
+    margin-top: 50px;
+  }
+  .username-input input {
+    width: 375px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid #dddfe2;
+    background: #fff;
+  }
+  .addphotoicon {
+    position: absolute;
+    top: 250px;
+    right: 145px;
+  }
+  .imgicon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 30px;
+    background-image: url("https://www.svgrepo.com/show/384674/account-avatar-profile-user-11.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  @media (max-width: 900px) {
+    .circle2 {
+      display: none;
+    }
+  }
+  @media (max-width: 700px) {
+    .circle1 {
+      display: none;
+    }
+    
+  }
+  @media (max-width: 768px) {
+    .imgicon {
+     padding-top: -200px;
+    }
+    #profile-input{
+      margin-top: 0px;
+    }
+  }
+  
+  @media (max-width: 450px) {
+    .circle3 {
+      display: none;
+    }
+  }
+  @media (max-width: 400px) {
+    .userprofile-card {
+      width: 340px;
+      height: 520px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+      border-radius: 10px;
+      border: 1px solid #dddfe2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: #fff;
+      position: relative;
+    }
+    .addphotoicon {
+      position: absolute;
+      top: 160px;
+      right: 110px;
+    }
+  }
+  
