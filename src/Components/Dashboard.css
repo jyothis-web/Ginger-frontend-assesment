@@ -1,17 +1,24 @@
 .dash-board {
   display: flex;
+
 }
 
 .right-sec {
   width: 230px;
+  background-color: #15141c;
+  color: white;
+  text-align: center;
+}
+.right-sec-mobile {
+  width: 220px;
   height: 100vh;
-  background-color:#15141C;
+  background-color: #15141c;
   color: white;
   text-align: center;
 }
 
 .left-btns {
-  margin-left: 50px;
+  margin-left: 40px;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -43,12 +50,17 @@ p {
   );
   color: white;
 }
-.left-sec-flex{
-    display: flex;
-    justify-content: space-between;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-bottom: 15px;
+.left-sec-flex {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 50px;
+  margin-bottom: 15px;
+}
+.responsive-icons {
+  display: flex;
+  gap: 15px;
+  cursor: pointer;
 }
 .card-arrange {
   display: flex;
@@ -56,8 +68,50 @@ p {
   gap: 30px;
   flex-wrap: wrap;
 }
-.icon-header{
-    padding: 8px;
-    background-color: black;
-    border-radius: 50%;
+.icon-header {
+  padding: 8px;
+  background-color: black;
+  border-radius: 50%;
+}
+
+/* responsive query */
+@media (min-width: 750px) {
+  .menuicon{
+    display: none;
+  }
+}
+@media (max-width: 750px) {
+  .right-sec {
+    display: none;
+  }
+  .left-sec-flex {
+    padding-right: 0px;
+  }
+  .responsive-icons {
+    margin: 25px;
+    gap: 7px;
+    font-size: 10px;
+
+  }
+}
+
+
+@media (max-width: 460px) {
+  .responsive-icons {
+    margin: 25px;
+    gap: 5px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 452px) {
+  .responsive-icons {
+    display: none;
+  }
+}
+
+@media (max-width: 452px) {
+  .responsive-icons {
+    display: none;
+  }
 }

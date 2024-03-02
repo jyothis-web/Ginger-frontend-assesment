@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext,} from "react";
 import "./Dashboard.css";
 import HomeIcon from "@mui/icons-material/Home";
 import MessageIcon from "@mui/icons-material/Message";
@@ -17,11 +17,12 @@ import logo from "../Components/Images/logo.png";
 import UserLogout from "./UserAuthentication/UserLogout/UserLogout";
 import { userAuth } from "../Context/AuthContext";
 import { Link } from "react-router-dom";
+import MobileDrawer from "./MobileDrawer/MobileDrawer";
 const Dashboard = () => {
-  const { setAuth, auth, comment } = useContext(userAuth);
+  const { auth, comment } = useContext(userAuth);
   const storedAvatarUrl = localStorage.getItem("avatarUrl");
   return (
-    <div className="dash-board">
+    <div className="dash-board" style={{ minHeight: "100vh" }}>
       <div className="right-sec">
         <div style={{ display: "flex", flexDirection: "column" }}></div>
         <img src={logo} alt="" />
@@ -90,7 +91,9 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="left-sec">
+     
         <div className="left-sec-flex">
+       
           <div
             style={{
               display: "flex",
@@ -99,10 +102,11 @@ const Dashboard = () => {
               gap: "5px",
             }}
           >
+                <div className="menuicon"><MobileDrawer/></div>
             {storedAvatarUrl ? (
               <img
                 src={storedAvatarUrl}
-                style={{ width: "50px",height:"50px", borderRadius: "50%" }}
+                style={{ width: "50px", height: "50px", borderRadius: "50%" }}
                 alt="User Avatar"
               />
             ) : (
@@ -115,7 +119,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div style={{ display: "flex", gap: "15px" }}>
+          <div className="responsive-icons" >
             <LanguageIcon fontSize="12px" className="icon-header" />
             <MessageIcon fontSize="12px" className="icon-header" />
             <SearchIcon fontSize="12px" className="icon-header" />
@@ -304,7 +308,7 @@ const Dashboard = () => {
           </div>
         </div>
         <Divider sx={{ marginTop: "15px", borderColor: "white" }} />
-        <h6 style={{ textAlign: "center" }}>copyright @ ginger</h6>
+        <h6 style={{ textAlign: "center",}}>copyright @ ginger</h6>
       </div>
     </div>
   );

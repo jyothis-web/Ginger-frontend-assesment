@@ -19,7 +19,8 @@ const Inbox = () => {
     if (userMessage === null || userMessage === undefined) {
       setComment(userMessage);
     }
-  }, [auth?.user?.message]);
+    // eslint-disable-next-line 
+  }, [auth?.user?.message,setComment]);
   console.log(UserId);
   const handleUpdateMessage = async () => {
     try {

@@ -5,31 +5,29 @@ import AddAPhotoIcon from "@mui/icons-material/AddAPhoto";
 import axios from "axios";
 import { userAuth } from "../Context/AuthContext";
 import toast from "react-hot-toast";
-import { Avatar } from "@mui/material";
-
+import { Link } from "react-router-dom";
 // import bannerimg from "../../../../assets/Images/banner/banner-img.png";
 
 const UserProfile = () => {
   const [profileImage, setProfileImage] = useState(null);
   const [imagePreview, setImagePreview] = useState("");
   const { auth } = useContext(userAuth);
-  //   console.log(auth);
-  //   console.log(comment);
-  const UserId = auth?.user?._id;
 
+  let image = auth?.user?.image?.imagePath;
+  const UserId = auth?.user?._id;
   useEffect(() => {
     const storedAvatarUrl = localStorage.getItem("avatarUrl");
-    console.log("url", localStorage.getItem("avatarUrl"));
-
-    if (!storedAvatarUrl) {
-      // Set a default avatar URL when there's no stored URL
-      setImagePreview();
-    } else {
-      // Use the stored avatar URL if available
+  
+    if (storedAvatarUrl) {
       setImagePreview(storedAvatarUrl);
+    } else if (image) {
+      const absoluteImageUrl = `http://localhost:8000/${image}`;
+      setImagePreview(absoluteImageUrl);
+      localStorage.setItem("avatarUrl", absoluteImageUrl);
+    } else {
+      setImagePreview("url_to_default_image"); // Replace with the URL of your default image
     }
-  }, []);
-  console.log("imagePreview", imagePreview);
+  }, [image]);
   const handleFileChange = (e) => {
     const file = e.target.files[0];
 
@@ -71,14 +69,13 @@ const UserProfile = () => {
       );
 
       const updatedUser = response.data.user;
-      console.log(updatedUser);
-      // Check if imagePath is present in the updatedUser
-      const imagePath = updatedUser.image.imagePath;
-      const absoluteImageUrl = `http://localhost:8000/${imagePath}`;
-      // Set the absolute URL to the imagePreview state
-      setImagePreview(absoluteImageUrl);
-      // Store the imagePath in local storage
-      localStorage.setItem("avatarUrl", absoluteImageUrl);
+
+      if (updatedUser.image && updatedUser.image.imagePath) {
+        const absoluteImageUrl = `http://localhost:8000/${updatedUser.image.imagePath}`;
+        setImagePreview(absoluteImageUrl);
+        localStorage.setItem("avatarUrl", absoluteImageUrl);
+      }
+
       toast.success(response.data.message);
     } catch (error) {
       console.error(error);
@@ -87,6 +84,9 @@ const UserProfile = () => {
 
   return (
     <div className="profile-main-div">
+      <Link to="/Dashboard">
+        <div>got to dashboard</div>
+      </Link>
       <div className="userprofile-card">
         <div>
           <div className="imgicon">

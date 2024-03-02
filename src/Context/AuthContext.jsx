@@ -26,6 +26,22 @@ useEffect(() => {
       setComment(storedComment);
     }
   }, []);
+    // Fetch user details
+    const fetchUser = async () => {
+      try {
+        const response =  auth;
+        const user = response.data.user;
+        console.log("user",user);
+        setAuth({
+          ...auth,
+          user,
+        });
+        return response;
+      } catch (error) {
+        console.error("Error fetching user:", error);
+        throw error;
+      }
+    };
 
 //for logout
 const Handlelogout = () => {
@@ -54,7 +70,8 @@ const Handlelogout = () => {
           auth,
           setAuth,
           Handlelogout,
-          comment, setComment
+          comment, setComment,
+          fetchUser
         }}
       >
         {children}

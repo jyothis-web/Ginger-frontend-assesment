@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 //import { cart } from "../../../Contex";
 import { Button, } from "@mui/material";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const CreateUser = () => {
   //const [category, setCategory] = useState('');
@@ -60,6 +61,7 @@ const CreateUser = () => {
   };
   return (
     <div className="create-product">
+      <Link to="/Dashboard"><div>got to dashboard</div></Link>
     <h2>Create New User</h2>
     <div style={{marginLeft:"30px",maxWidth:"300px" }}>
       <form onSubmit={handleSubmit}>
