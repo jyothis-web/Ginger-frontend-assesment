@@ -16,7 +16,7 @@ const UserLogin = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post(`http://localhost:8000/Gingerauth/login`, {
+      const response = await axios.post(`https://ginger-backend.onrender.com/Gingerauth/login`, {
         email,
         password,
       });

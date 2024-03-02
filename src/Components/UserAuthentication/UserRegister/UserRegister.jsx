@@ -20,7 +20,7 @@ const UserRegister = () => {
           console.log("fill all tha fields");
         } else {
           const response = await axios.post(
-            `http://localhost:8000/Gingerauth/register`,
+            `https://ginger-backend.onrender.com/Gingerauth/register`,
             { name, email, password } // Send data as an object
           );
           console.log(response.data);

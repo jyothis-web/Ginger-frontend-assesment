@@ -43,7 +43,7 @@ const CreateUser = () => {
 
     try {
       const response = await axios.post(
-        `http://localhost:8000/GingerCreateUser/createUser`,
+        `https://ginger-backend.onrender.com/GingerCreateUser/createUser`,
         formData,
         {
           headers: {

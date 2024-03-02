@@ -21,7 +21,7 @@ const UserProfile = () => {
     if (storedAvatarUrl) {
       setImagePreview(storedAvatarUrl);
     } else if (image) {
-      const absoluteImageUrl = `http://localhost:8000/${image}`;
+      const absoluteImageUrl = `https://ginger-backend.onrender.com/${image}`;
       setImagePreview(absoluteImageUrl);
       localStorage.setItem("avatarUrl", absoluteImageUrl);
     } else {
@@ -59,7 +59,7 @@ const UserProfile = () => {
     // Use Axios to send the formData to your backend API
     try {
       const response = await axios.post(
-        `http://localhost:8000/Gingerauth//UpdateProfileImage/${UserId}`,
+        `https://ginger-backend.onrender.com/Gingerauth//UpdateProfileImage/${UserId}`,
         formData,
         {
           headers: {
@@ -71,7 +71,7 @@ const UserProfile = () => {
       const updatedUser = response.data.user;
 
       if (updatedUser.image && updatedUser.image.imagePath) {
-        const absoluteImageUrl = `http://localhost:8000/${updatedUser.image.imagePath}`;
+        const absoluteImageUrl = `https://ginger-backend.onrender.com/${updatedUser.image.imagePath}`;
         setImagePreview(absoluteImageUrl);
         localStorage.setItem("avatarUrl", absoluteImageUrl);
       }

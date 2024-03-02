@@ -25,7 +25,7 @@ const Inbox = () => {
   const handleUpdateMessage = async () => {
     try {
       const response = await axios.post(
-        `http://localhost:8000/Gingerauth/create-message/${UserId}`,
+        `https://ginger-backend.onrender.com/Gingerauth/create-message/${UserId}`,
         { message }
       );
 
