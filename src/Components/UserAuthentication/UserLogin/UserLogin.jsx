@@ -29,7 +29,6 @@ const UserLogin = () => {
       });
       localStorage.setItem("auth", JSON.stringify(response.data));
       navigate("/Dashboard");
-      window.location.reload();
     } catch (error) {
       console.log(error.response.data.message);
       toast.error(error.response.data.message);
